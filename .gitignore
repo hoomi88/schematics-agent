@@ -6,5 +6,6 @@ core/__pycache__/
 gui/__pycache__/
 kicad/__pycache__/
 tools/__pycache__/
+output/design.kicad_pcb
 
 

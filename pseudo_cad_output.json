@@ -1,0 +1,330 @@
+{
+  "assemblies": [
+    {
+      "id": "main_assembly",
+      "mainComponentId": "ESP32",
+      "name": "Main Assembly",
+      "peripheralComponentIds": [
+        "HUMIDITY_SENSOR",
+        "BATTERY_MONITOR",
+        "CHARGER_IC"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "category": "microcontroller",
+      "footprint": "Package_QFN:QFN-38_6x6mm_P0.8mm",
+      "id": "ESP32",
+      "interfaces": [
+        {
+          "direction": "bidirectional",
+          "id": "uart",
+          "name": "UART",
+          "properties": {
+            "baudRate": 115200
+          },
+          "type": "uart"
+        },
+        {
+          "direction": "bidirectional",
+          "id": "i2c",
+          "name": "I2C",
+          "properties": {
+            "speedHz": 400000
+          },
+          "type": "i2c"
+        },
+        {
+          "direction": "power",
+          "id": "vdd",
+          "name": "VDD",
+          "type": "power-in"
+        }
+      ],
+      "manufacturer": "Espressif",
+      "name": "ESP32-WROOM-32",
+      "partNumber": "ESP32-WROOM-32",
+      "powerDomain": "3V3",
+      "role": "main",
+      "supportingComponentIds": [
+        "C1",
+        "C2",
+        "C3",
+        "R1",
+        "R2",
+        "JST_CONNECTOR",
+        "USB_C_CONNECTOR"
+      ]
+    },
+    {
+      "associatedMainComponents": [
+        "ESP32"
+      ],
+      "category": "sensor",
+      "footprint": "Package_TO-92:TO-92-3",
+      "id": "HUMIDITY_SENSOR",
+      "interfaces": [
+        {
+          "direction": "bidirectional",
+          "id": "i2c",
+          "name": "I2C",
+          "properties": {
+            "i2cAddress": "0x40"
+          },
+          "type": "i2c"
+        }
+      ],
+      "manufacturer": "Honeywell",
+      "name": "Hygrometer Sensor",
+      "partNumber": "HIH-4030-001",
+      "powerDomain": "3V3",
+      "role": "peripheral",
+      "supportingComponentIds": [
+        "C4"
+      ]
+    },
+    {
+      "category": "power-protection",
+      "footprint": "Package_VSSOP:VSSOP-8_3x3mm_P0.5mm",
+      "id": "BATTERY_MONITOR",
+      "interfaces": [
+        {
+          "direction": "power",
+          "id": "vbat",
+          "name": "VBAT",
+          "type": "power-in"
+        }
+      ],
+      "manufacturer": "Texas Instruments",
+      "name": "Battery Monitor IC",
+      "partNumber": "BQ27441",
+      "powerDomain": "VBAT",
+      "role": "peripheral",
+      "supportingComponentIds": [
+        "C5",
+        "R3"
+      ]
+    },
+    {
+      "category": "power-supply",
+      "footprint": "Package_SOT:SOT-23-5",
+      "id": "CHARGER_IC",
+      "interfaces": [
+        {
+          "direction": "power",
+          "id": "vbat",
+          "name": "VBAT",
+          "type": "power-in"
+        }
+      ],
+      "manufacturer": "Microchip",
+      "name": "Battery Charger IC",
+      "partNumber": "MCP73831",
+      "powerDomain": "VBAT",
+      "role": "peripheral",
+      "supportingComponentIds": [
+        "C6"
+      ]
+    },
+    {
+      "category": "passive",
+      "footprint": "Capacitor_0603",
+      "id": "C1",
+      "manufacturer": "Murata",
+      "name": "Decoupling Capacitor",
+      "notes": "Decoupling capacitor for ESP32 VDD.",
+      "partNumber": "GRM188R71H104KA01D",
+      "role": "passive",
+      "value": "100nF"
+    },
+    {
+      "category": "passive",
+      "footprint": "Capacitor_0603",
+      "id": "C2",
+      "manufacturer": "Kemet",
+      "name": "Decoupling Capacitor",
+      "notes": "Bulk capacitor for power stability.",
+      "partNumber": "C1210C106K5RAC7800",
+      "role": "passive",
+      "value": "10uF"
+    },
+    {
+      "category": "passive",
+      "footprint": "Capacitor_0603",
+      "id": "C3",
+      "manufacturer": "Murata",
+      "name": "Decoupling Capacitor",
+      "notes": "Decoupling capacitor for battery monitor.",
+      "partNumber": "GRM188R71C105KA01D",
+      "role": "passive",
+      "value": "1uF"
+    },
+    {
+      "category": "passive",
+      "footprint": "Capacitor_0603",
+      "id": "C4",
+      "manufacturer": "Kemet",
+      "name": "Pull-up Capacitor",
+      "notes": "Pull-up for humidity sensor I2C.",
+      "partNumber": "C0603100K5RAC7800",
+      "role": "passive",
+      "value": "1uF"
+    },
+    {
+      "category": "passive",
+      "footprint": "Capacitor_0603",
+      "id": "C5",
+      "manufacturer": "Kemet",
+      "name": "Battery Monitor Capacitor",
+      "notes": "Decoupling for battery monitor.",
+      "partNumber": "C0603100K5RAC7800",
+      "role": "passive",
+      "value": "10uF"
+    },
+    {
+      "category": "passive",
+      "footprint": "Capacitor_0603",
+      "id": "C6",
+      "manufacturer": "Murata",
+      "name": "Charging Capacitor",
+      "notes": "Decoupling for charger IC.",
+      "partNumber": "GRM188R71C105KA01D",
+      "role": "passive",
+      "value": "1uF"
+    },
+    {
+      "category": "passive",
+      "footprint": "Resistor_0603",
+      "id": "R1",
+      "manufacturer": "Yageo",
+      "name": "Pull-up Resistor",
+      "notes": "Pull-up for I2C.",
+      "partNumber": "RC060310K0F",
+      "role": "passive",
+      "value": "4.7k"
+    },
+    {
+      "category": "passive",
+      "footprint": "Resistor_0603",
+      "id": "R2",
+      "manufacturer": "Yageo",
+      "name": "Pull-down Resistor",
+      "notes": "Pull-down for UART.",
+      "partNumber": "RC060310K0F",
+      "role": "passive",
+      "value": "10k"
+    },
+    {
+      "category": "passive",
+      "footprint": "Resistor_0603",
+      "id": "R3",
+      "manufacturer": "Yageo",
+      "name": "Battery Monitor Resistor",
+      "notes": "Pull-down for battery monitor.",
+      "partNumber": "RC060310K0F",
+      "role": "passive",
+      "value": "10k"
+    },
+    {
+      "category": "connector",
+      "footprint": "Connector_JST:PH-2",
+      "id": "JST_CONNECTOR",
+      "manufacturer": "JST",
+      "name": "JST Connector",
+      "notes": "Connector for rechargeable battery.",
+      "partNumber": "PH-2",
+      "role": "passive"
+    },
+    {
+      "category": "connector",
+      "footprint": "Connector_USB-C:USB-C",
+      "id": "USB_C_CONNECTOR",
+      "manufacturer": "Amphenol",
+      "name": "USB-C Connector",
+      "notes": "USB-C connector for charging.",
+      "partNumber": "10116205-0001",
+      "role": "passive"
+    }
+  ],
+  "device": {
+    "description": "A humidity sensor that utilizes either resistive or capacitive technology, featuring Bluetooth and Wi-Fi connectivity, a rechargeable battery, and LED indicators for operational status and battery levels.",
+    "generatedAt": "2025-08-14T00:00:00Z",
+    "name": "Smart Humidity Sensor",
+    "sourceDocumentRef": "hld_result.json"
+  },
+  "nets": [
+    {
+      "id": "NET_I2C",
+      "name": "I2C Bus",
+      "participants": [
+        {
+          "componentId": "ESP32",
+          "interfaceId": "i2c",
+          "role": "controller"
+        },
+        {
+          "componentId": "HUMIDITY_SENSOR",
+          "interfaceId": "i2c",
+          "role": "peripheral"
+        }
+      ],
+      "properties": {
+        "pullupsRequired": true
+      },
+      "protocol": "I2C",
+      "type": "bus"
+    },
+    {
+      "id": "NET_UART",
+      "name": "UART Debug",
+      "participants": [
+        {
+          "componentId": "ESP32",
+          "interfaceId": "uart",
+          "role": "controller"
+        },
+        {
+          "componentId": "DEBUG_HEADER",
+          "interfaceId": "debug",
+          "role": "peripheral"
+        }
+      ],
+      "properties": {
+        "pullupsRequired": false
+      },
+      "protocol": "UART",
+      "type": "bus"
+    },
+    {
+      "id": "NET_VBAT",
+      "name": "Battery Voltage",
+      "participants": [
+        {
+          "componentId": "BATTERY_MONITOR",
+          "interfaceId": "vbat",
+          "role": "source"
+        },
+        {
+          "componentId": "CHARGER_IC",
+          "interfaceId": "vbat",
+          "role": "sink"
+        }
+      ],
+      "type": "power"
+    }
+  ],
+  "powerDomains": [
+    {
+      "name": "3V3",
+      "type": "primary",
+      "voltage": 3.3
+    },
+    {
+      "name": "VBAT",
+      "type": "battery",
+      "voltage": 4.2
+    }
+  ],
+  "version": "1.0.0"
+}

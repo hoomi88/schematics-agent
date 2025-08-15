@@ -1,0 +1,10 @@
+.venv/
+.chroma/
+output/gpt_debug/
+agents/__pycache__/
+core/__pycache__/
+gui/__pycache__/
+kicad/__pycache__/
+tools/__pycache__/
+
+
